@@ -11,12 +11,12 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "type": "commonjs",
   "dependencies": {
     "express": "^5.1.0"
   },
   "devDependencies": {
     "eslint": "^9.32.0",
     "jest": "^30.0.5"
-  }
+  },
+  "type": "module"
 }

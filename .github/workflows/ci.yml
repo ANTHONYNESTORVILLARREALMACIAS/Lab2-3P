@@ -1,31 +1,34 @@
-name: CI/CD workflow
+name: CI/CD Workflow
 
 on:
-    push:
-        branches: [main]
-    pull_request:
-        branches: [main]
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
 
 jobs:
-    build-and-test:
-        runs-on: ubuntu-latest
-        steps:
-            -   name: Clonar el repositorio
-                uses: actions/checkout@v2
+  build-and-test:
+    runs-on: ubuntu-latest
 
-            -   name: Configurar Node.js
-                uses: actions/setup-node@v2
-                with:
-                    node-version: '14'
-            -   name: Instalar dependencias
-                run: npm install
+    steps:
+      - name: Clonar repositorio
+        uses: actions/checkout@v4
 
-            -   name: Lint del codigo
-                run: npm run lint
+      - name: Configurar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
 
-            -   name: Ejecutar pruebas
-                run: npm test
+      - name: Instalar dependencias
+        run: npm install
 
-            -   name: Simular despliegue
-                run: |
-                    echo "Despliegue simulado: La aplicación pasó Lint y Pruebas correctamente."
+      - name: Lint del codigo
+        run: npm run lint
+
+      - name: Ejecutar pruebas
+        run: npm test
+
+      - name: Simular despliegue
+        run: |
+          echo "Despliegue simulado la aplicacion paso 
+          Lint y Pruebas correctamente"
